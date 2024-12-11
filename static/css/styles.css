@@ -123,11 +123,11 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #000000, #272727);
+  background: linear-gradient(0deg, #000000, #272727);
 }
 
 .box div img{
-  border: 4px solid #000;
+  border: 4px solid #000000;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -246,12 +246,12 @@ body {
   background-image: url("imgs/background_grey.png");
   opacity: 1;
   background-color: #000c24;
-  height: 700px;
+
   margin-top: 65px;
   background-position: center;
   background-repeat: repeat-y;
   background-size: cover;
-  position: relative;
+
 }
 
 .hero-text {
