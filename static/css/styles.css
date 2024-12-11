@@ -296,7 +296,7 @@ body {
 # BUTTONS icons GIT/INSTA/LINKEDIn
 --------------------------------------------------------------*/
 
-#space-between_buttons {
+.space-between_buttons {
   margin-left: 1.5px;
   margin-right: 1.5px;
   padding-right: 17px !important;
@@ -304,7 +304,7 @@ body {
   color: #ffffff;
 }
 
-#space-between_buttons:hover {
+.space-between_buttons:hover {
   background-color: #000000; /* background black */
   color: #f3633f;
   border: 0.5px solid #f3633f;
