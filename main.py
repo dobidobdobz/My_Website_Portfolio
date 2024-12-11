@@ -8,7 +8,7 @@ MAIL = os.environ.get("MAIL")
 PASS = os.environ.get("PASS")
 T0_MAIL = os.environ.get("T0_MAIL")
 HOST = os.environ.get("HOST")
-PORT = os.environ.get("PORT")
+# PORT = os.environ.get("PORT")
 
 # starting flask server
 app = Flask(__name__)
@@ -29,7 +29,7 @@ def home():
         # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
         try:
             # executes sending email with data
-            connection = smtplib.SMTP(host=HOST, port=int(PORT))
+            connection = smtplib.SMTP(host=HOST)
             connection.starttls()
             connection.login(user=MAIL, password=PASS)
             connection.sendmail(
