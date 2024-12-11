@@ -57,4 +57,4 @@ def home():
 
 # runs flask server in debug mode applying changes as they are made.
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
