@@ -305,7 +305,7 @@ body {
 }
 
 #space-between_buttons:hover {
-  background-color: #010C23; /* background black */
+  background-color: #000000; /* background black */
   color: #f3633f;
   border: 0.5px solid #f3633f;
 }
