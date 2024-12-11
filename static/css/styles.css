@@ -326,7 +326,7 @@ body {
 .card {
     width:  200px;
     height: 280px;
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(90deg, transparent, #212529, #212529, transparent);
     border-radius: 3px;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
