@@ -1,0 +1,489 @@
+
+/*--------------------------------------------------------------
+# Preloader/ANIMATION intro
+--------------------------------------------------------------*/
+#preloader {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+}
+
+#preloader:before,
+#preloader:after {
+  content: "";
+  background-color: #000000;
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  height: 100%;
+  transition: all 0.3s ease 0s;
+  z-index: -1;
+}
+
+#preloader:after {
+  left: auto;
+  right: 0;
+}
+
+#preloader .line {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 1px;
+  height: 280px;
+  transition: all 0.8s ease 0s;
+}
+
+#preloader .line:before {
+  content: "";
+  position: absolute;
+  background-color: #f3633f;
+  left: 0;
+  top: 50%;
+  width: 2px;
+  height: 0%;
+  transform: translateY(-50%);
+  animation: lineincrease 1000ms ease-in-out 0s forwards;
+}
+
+#preloader .line:after {
+  content: "";
+  position: absolute;
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateY(-100%);
+  animation: linemove 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+#preloader.loaded .line {
+  opacity: 0;
+  height: 100% !important;
+}
+
+#preloader.loaded .line:after {
+  opacity: 0;
+}
+
+#preloader.loaded:before,
+#preloader.loaded:after {
+  animation: preloaderfinish 300ms ease-in-out 500ms forwards;
+}
+
+@keyframes lineincrease {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes linemove {
+  0% {
+    transform: translateY(200%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes preloaderfinish {
+  0% {
+    width: 5 0%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+/*--------------------------------------------------------------
+# AVATAR IMG
+--------------------------------------------------------------*/
+
+.box {
+  margin-top: 440px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box div {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(0deg, #000, #272727);
+}
+
+.box div img{
+  border: 4px solid #000000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+}
+
+.box div:before, .box div:after {
+	content: '';
+    border-radius: 50%;
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #f3633f, #ed1d24, #f3633f, #ed1d24, #f3633f, transparent,
+		transparent, transparent,transparent, transparent);
+	/*background: linear-gradient(180deg, #f3633f, #f3633f, #f3633f,#f3633f, #f3633f, #000c24,
+		#000c24, #000c24,#000c24, #f3633f);  180 degree setting stil image looks kinda dope-*/
+	background-size: 200%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 25s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.box div:after {
+	filter: blur(50px);
+}
+
+/*--------------------------------------------------------------
+# NEON/LUMO NAME (DOBRI TODOROV POPOV)
+--------------------------------------------------------------*/
+
+@font-face {
+  font-family: "Liberty";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/907368/liberty.otf"); }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  font-size: 5px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: left;
+  }
+
+  body .text {
+    font-family: 'Liberty';
+    font-weight: 100;
+    font-size: 4.2rem;
+    letter-spacing: -0.28em;
+    flex-flow: row; }
+
+    body .text .letter {
+      margin-top: 0px;
+      color: yellow;
+      text-shadow: 0 0 1.5rem red;
+      display: inline-block; }
+
+      body .text .letter.letter-2 {
+        transform: translate(-0.2rem, 1rem) rotate(10deg);
+        animation: flicker 2s ease-in-out infinite alternate; }
+
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  5% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  5.5% {
+    opacity: 0;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  6% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  6.5% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  7% {
+    opacity: 0;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  8% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); }
+  50% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(13deg); }
+  100% {
+    opacity: 1;
+    transform: translate(-0.2rem, 1rem) rotate(10deg); } }
+
+
+ /*--------------------------------------------------------------
+# hero image (BACKGROUND)
+--------------------------------------------------------------*/
+
+.hero-image {
+  background-image: url("imgs/background_grey.png");
+  opacity: 1;
+  background-color: #000c24;
+  height: 700px;
+  margin-top: 65px;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: relative;
+  margin: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  left: 0px;
+  color: white;
+}
+
+/*--------------------------------------------------------------
+# RESUME/CV BUTTON
+--------------------------------------------------------------*/
+.resume_button {
+  margin-bottom: 30px;
+  width: 200px;
+  display: inline-block;
+  padding: 10px 5px;
+  color: #f3633f;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border-top: 1.8px solid #f3633f;
+  border-bottom: 1.8px solid #f3633f;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 450;
+  font-style: bold;
+  background: linear-gradient(45deg, transparent, #000000,#000000,#000000, transparent);
+}
+
+.resume_button:hover {
+  background: #f3633f;
+  color: #050801;
+  box-shadow: #ed1d24 0 0 35px 4px;
+}
+
+/*--------------------------------------------------------------
+# BUTTONS icons GIT/INSTA/LINKEDIn
+--------------------------------------------------------------*/
+
+#space-between_buttons {
+  margin-left: 1.5px;
+  margin-right: 1.5px;
+  padding-right: 17px !important;
+  padding-left: 17px !important;
+  color: #ffffff;
+}
+
+#space-between_buttons:hover {
+  background-color: #010C23; /* background black */
+  color: #f3633f;
+  border: 0.5px solid #f3633f;
+}
+
+ /*--------------------------------------------------------------
+# PROJECTS CONTAINER
+--------------------------------------------------------------*/
+.container {
+    width: 100%;
+    height:  100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display:  flex;
+    align-items:  center;
+    justify-content: center;
+}
+
+.card {
+    width:  200px;
+    height: 280px;
+    background-color: #242424;
+    background: linear-gradient(90deg, transparent, #212529, #212529, transparent);
+    border-radius: 3px;
+    border-top: 1.5px solid #f3633f;
+    border-bottom: 1.5px solid #f3633f;
+}
+
+h3 {
+ font-family: "Roboto", sans-serif;
+ font-weight: 700;
+ font-style: normal;
+ margin-bottom: 20px;
+ font-size: 25px;
+ font-style: bold;
+}
+
+.h4 {
+    color: #f3633f;
+    text-transform: uppercase;
+    padding-top: 14px;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+}
+
+.list_of_projects {
+    padding-top: 20px;
+    color:  white;
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 8px ; /* Remove margins */
+}
+
+.list_of_projects a {
+    color: #FFF56D;
+    text-decoration: none;
+}
+
+.list_of_projects a:hover {
+    color: #f3633f;
+    text-decoration: none;
+}
+
+ /*--------------------------------------------------------------
+# CONTACT SECTION & FORM
+--------------------------------------------------------------*/
+
+input[type=text], select, textarea {
+  color: white;
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+  margin: 0px;
+
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  background-color: transparent;
+  border-top: 0px solid #010C23;
+  border-right:  0px solid #010C23;
+  border-left:  0px solid #010C23;
+  border-bottom: 1.8px solid #f3633f;
+  border-radius: 0px;
+  resize: vertical;
+}
+
+/*- removes the highlights around the text box when selected -*/
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/*- removes chromes auto complete text box when selected & changes it -*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-top: 0px solid transparent;
+  border-right:  0px solid transparent;
+  border-left:  0px solid transparent;
+  border-bottom: 1.8px solid #f3633f;
+  -webkit-text-font-size: 10px;
+  -webkit-text-font-family: "Roboto", sans-serif;
+  -webkit-text-font-family: font-weight: 900;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button[type=submit] {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width:  125px;
+  height: 27px;
+  background-color: #000000;
+  color: orange;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size:  10px;
+  border: 1.8px solid #f3633f;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: #ed1d24 0 0 25px 1px;
+}
+
+button[type=submit]:hover {
+  background-color: #f3633f;
+  color:  #010C23;
+}
+
+.container2 {
+  text-align: center;
+  border-radius: 5px;
+  padding: 0px;
+  align-items:  center;
+}
+
+.mail_sent_success {
+    font-family: "Roboto", sans-serif;
+    font-weight: 650;
+    font-style: normal;
+    font-size: 9px;
+    color: green;
+}
+
+.mail_sent_error{
+    font-family: "Roboto", sans-serif;
+    font-weight: 650;
+    font-style: normal;
+    font-size: 9px;
+    color: #ed1d24;
+}
+
+.col-75 {
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
