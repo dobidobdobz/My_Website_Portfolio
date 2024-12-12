@@ -123,7 +123,7 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: -webkit-linear-gradient(top, #000000, #272727);
+  background: -webkit-linear-gradient(0deg, black, grey);
 }
 
 .box div img{
@@ -326,7 +326,7 @@ body {
 .card {
     width:  200px;
     height: 280px;
-    background: -webkit-linear-gradient(left, transparent, green, transparent);
+    background: -webkit-linear-gradient(left, transparent, grey, transparent);
     border-radius: 3px;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
