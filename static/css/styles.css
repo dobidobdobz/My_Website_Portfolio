@@ -326,7 +326,7 @@ body {
 .card {
     width:  200px;
     height: 280px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, #23538a));
+    background: -webkit-linear-gradient(right, transparent, #212529, #212529, transparent);
     border-radius: 3px;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
