@@ -123,7 +123,7 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: -webkit-linear-gradient(90deg, black, rgba(33,37,41,255));
+  background: linear-gradient(0deg, #000000, #212529);
 }
 
 .box div img{
@@ -326,7 +326,7 @@ body {
 .card {
     width:  200px;
     height: 280px;
-    background: -webkit-linear-gradient(left, transparent, rgba(33,37,41,255), transparent);
+    background: linear-gradient(90deg, transparent, #212529, #212529, transparent);
     border-radius: 3px;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
@@ -449,7 +449,7 @@ button[type=submit] {
 
 button[type=submit]:hover {
   background-color: #f3633f;
-  color:  black;
+  color:  #000000;
 }
 
 .container2 {
