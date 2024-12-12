@@ -118,7 +118,7 @@
   justify-content: center;
 }
 
-div {
+.box div {
   position: relative;
   width: 180px;
   height: 180px;
@@ -126,7 +126,7 @@ div {
   background: -webkit-linear-gradient(90deg, black, rgba(33,37,41,255));
 }
 
-img{
+.box div img{
   border: 4px solid #000000;
   position: absolute;
   width: 100%;
