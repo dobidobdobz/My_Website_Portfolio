@@ -449,7 +449,7 @@ button[type=submit] {
 
 button[type=submit]:hover {
   background-color: #f3633f;
-  color:  rgba(0,0,0,255);
+  color:  black;
 }
 
 .container2 {
