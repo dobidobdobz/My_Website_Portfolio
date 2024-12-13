@@ -118,15 +118,15 @@
   justify-content: center;
 }
 
-.box div {
+#div {
   position: relative;
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: linear-gradient(0deg, #000000, #212529);
+  background: linear-gradient(0deg, #000000, yellow);
 }
 
-.box div img{
+#img{
   border: 4px solid black;
   position: absolute;
   width: 100%;
