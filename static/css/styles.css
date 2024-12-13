@@ -138,7 +138,7 @@
 
 .box div:before, .box div:after {
 	content: '';
-    border-radius: 50%;
+    	border-radius: 50%;
 	position: absolute;
 	left: -2px;
 	top: -2px;
@@ -200,7 +200,7 @@ body {
     body .text .letter {
       margin-top: 0px;
       color: yellow;
-      text-shadow: 0 0 1.5rem red;
+      text-shadow: 0 0 1.5rem #ed1d24;
       display: inline-block; }
 
       body .text .letter.letter-2 {
@@ -351,7 +351,6 @@ h3 {
 
 .list_of_projects {
     padding-top: 20px;
-    color:  white;
     font-size: 13px;
     font-family: "Roboto", sans-serif;
     font-style: normal;
@@ -361,7 +360,8 @@ h3 {
 }
 
 .list_of_projects a {
-    color: #FFF56D;
+    color: yellow;
+    text-shadow: 0 0 1.5rem #ed1d24;
     text-decoration: none;
 }
 
@@ -392,6 +392,16 @@ input[type=text], select, textarea {
   border-bottom: 1.8px solid #f3633f;
   border-radius: 0px;
   resize: vertical;
+}
+
+/*- changes color of placeholder text -*/
+textarea::placeholder {
+  color: white;
+  opacity: 1;
+}
+input::placeholder {
+  color: white;
+  opacity: 1;
 }
 
 /*- removes the highlights around the text box when selected -*/
