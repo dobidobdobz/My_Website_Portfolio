@@ -1,5 +1,5 @@
 html {
-    transform: scale(1.25)
+    transform: scale(1.50)
 }
 /*--------------------------------------------------------------
 # Preloader/ANIMATION intro
@@ -113,7 +113,7 @@ html {
 --------------------------------------------------------------*/
 
 .box {
-  margin-top: 510px;
+  margin-top: 720px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
