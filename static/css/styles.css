@@ -1,6 +1,6 @@
 html {
-    transform: scale(2.5);
-    transform-origin: center;
+    transform: scale(2.25);
+    transform-origin: center top;
 }
 /*-----
 /*--------------------------------------------------------------
@@ -11,7 +11,7 @@ html {
   position: fixed;
   inset: 0;
   width: 100%;
-  height: 25vh;
+  height: 50vh;
   z-index: 99999;
 }
 
