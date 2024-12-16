@@ -1,4 +1,5 @@
 html {
+    color-scheme: dark light;
     transform: scale(2.25);
     transform-origin: center top;
 }
