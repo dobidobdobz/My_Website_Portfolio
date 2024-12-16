@@ -1,6 +1,6 @@
 html {
-    transform: scale(1.75);
-    transform-origin: top;
+    transform: scale(2);
+    transform-origin: center top;
 }
 /*-----
 /*--------------------------------------------------------------
@@ -115,7 +115,7 @@ html {
 --------------------------------------------------------------*/
 
 .box {
-  margin-top: 800px;
+  margin-top: 440px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
