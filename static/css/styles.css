@@ -243,7 +243,7 @@ body {
 --------------------------------------------------------------*/
 
 .hero-image {
-  zoom: 175%;
+  zoom: 100%;
   background-image: url("imgs/background_grey.png");
   opacity: 1;
   background-color: #fffffff;
