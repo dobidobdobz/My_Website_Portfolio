@@ -1,8 +1,4 @@
-html {
 
-    transform: scale(1);
-}
-/*-----
 /*--------------------------------------------------------------
 # Preloader/ANIMATION intro
 --------------------------------------------------------------*/
@@ -115,7 +111,7 @@ html {
 --------------------------------------------------------------*/
 
 .box {
-  margin-top: 440px;
+  margin-top: 40px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -247,13 +243,13 @@ body {
 --------------------------------------------------------------*/
 
 .hero-image {
+  zoom: 175%;
   background-image: url("imgs/background_grey.png");
   opacity: 1;
-  background-color: #000000;
-  height: 700px;
+  background-color: #fffffff;
+  height: relative;
   margin-top: 0px;
   background-position: center;
-  background-repeat: repeat-y;
   background-size: cover;
 
 }
