@@ -18,41 +18,51 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-    # condition to execute post request
-    if request.method == "POST":
+    user_device = request.headers.get('User-agent')
+    
+    is_mobile_device = False
 
-        # data input from CONTACT FORM, id=email in HTML form & from id=name in HTML form etc.
-        name_on_form = request.form.get("name")
-        email_on_form = request.form.get("email")
-        message_on_form = request.form.get("message")
+    if "iphone" or 'android' not in user_device:
+        is_mobile_device = False
 
-        # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
-        try:
-            # executes sending email with data
-            connection = smtplib.SMTP(host=HOST, port=587)
-            connection.starttls()
-            connection.login(user=MAIL, password=PASS)
-            connection.sendmail(
-                to_addrs=T0_MAIL,
-                from_addr=MAIL,
-                msg=f"From:CONTACT WEB-PORTFOLIO \nSubject: CONTACT ALERT! {name_on_form}! FROM WEBSITE PORTFOLIO! \n\n "
-                f"Client name: {name_on_form}\n"
-                f"Client email: {email_on_form}\n"
-                f"Message from client: {message_on_form}"
-            )
-            connection.quit()
+        # condition to execute post request
+        if request.method == "POST":
 
-            # renders feedback if successful in html
-            mail_sent_successfully = f"Thank you, {name_on_form}, your message has been sent!"
-            return render_template("index.html", mail_sent_successfully=mail_sent_successfully)
+            # data input from CONTACT FORM, id=email in HTML form & from id=name in HTML form etc.
+            name_on_form = request.form.get("name")
+            email_on_form = request.form.get("email")
+            message_on_form = request.form.get("message")
 
-        except:
-            # renders feedback if error occurs in html
-            mail_sent_error = f"Error! your message has been not sent!"
-            return render_template("index.html", mail_sent_error=mail_sent_error)
+            # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
+            try:
+                # executes sending email with data
+                connection = smtplib.SMTP(host=HOST, port=int(PORT))
+                connection.starttls()
+                connection.login(user=MAIL, password=PASS)
+                connection.sendmail(
+                    to_addrs=T0_MAIL,
+                    from_addr=MAIL,
+                    msg=f"From:CONTACT WEB-PORTFOLIO \nSubject: CONTACT ALERT! {name_on_form}! FROM WEBSITE PORTFOLIO! \n\n "
+                    f"Client name: {name_on_form}\n"
+                    f"Client email: {email_on_form}\n"
+                    f"Message from client: {message_on_form}"
+                )
+                connection.quit()
 
+                # renders feedback if successful in html
+                mail_sent_successfully = f"Thank you, {name_on_form}, your message has been sent!"
+                return render_template("index.html", mail_sent_successfully=mail_sent_successfully, is_mobile_device=is_mobile_device)
+
+            except:
+                # renders feedback if error occurs in html
+                mail_sent_error = f"Error! your message has been not sent!"
+                return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device)
+
+        else:
+            return render_template("index.html", is_mobile_device=is_mobile_device)
     else:
-        return render_template("index.html")
+        is_mobile_device = True
+        return render_template("index.html", is_mobile_device=is_mobile_device)
 
 
 # runs flask server in debug mode applying changes as they are made.
