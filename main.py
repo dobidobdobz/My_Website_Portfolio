@@ -30,7 +30,8 @@ def home():
     print(type(is_mobile_device))
 
     for x in user_device:
-        if x == "Android":
+        print(x)
+        if "Android" in x:
             print(x)
             print(type(x))
             is_mobile_device = True
