@@ -18,12 +18,12 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-    user_device = request.headers.get('User-agent')
-    print(user_device.split())
+    user_device = request.headers.get('User-agent').split()
+    print(user_device)
     
     is_mobile_device = False
 
-    if "iphone" or 'android' not in user_device:
+    if 'Mobile' or 'Android' not in user_device:
         is_mobile_device = False
         print(is_mobile_device)
 
