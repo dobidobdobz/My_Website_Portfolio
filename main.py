@@ -19,11 +19,13 @@ app = Flask(__name__)
 def home():
 
     user_device = request.headers.get('User-agent')
+    print(user_device.split())
     
     is_mobile_device = False
 
     if "iphone" or 'android' not in user_device:
         is_mobile_device = False
+        print(is_mobile_device)
 
         # condition to execute post request
         if request.method == "POST":
@@ -62,6 +64,7 @@ def home():
             return render_template("index.html", is_mobile_device=is_mobile_device)
     else:
         is_mobile_device = True
+        print(is_mobile_device)
         return render_template("index.html", is_mobile_device=is_mobile_device)
 
 
