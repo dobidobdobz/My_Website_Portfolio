@@ -193,14 +193,14 @@ body {
   body .text {
     font-family: 'Liberty';
     font-weight: 100;
-    font-size: 4.2rem;
-    letter-spacing: -0.28em;
+    font-size: 4.5rem;
+    letter-spacing: -0.26em;
     flex-flow: row; }
 
     body .text .letter {
       margin-top: 0px;
       color: yellow;
-      text-shadow: 0 0 1.5rem #ed1d24;
+      text-shadow: 0 0 1.8rem #ed1d24;
       display: inline-block; }
 
       body .text .letter.letter-2 {
@@ -337,7 +337,7 @@ h3 {
  font-weight: 700;
  font-style: normal;
  margin-bottom: 20px;
- font-size: 25px;
+ font-size: 28.5px;
  font-style: bold;
 }
 
