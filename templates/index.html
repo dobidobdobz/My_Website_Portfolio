@@ -36,6 +36,12 @@
 
   <!-- hero section-->
   <div>
+        
+  {% if is_mobile_device %}
+  <p style="color: white; font-size: 25px;">I'm happy to see you are using a Mobile device</p>
+  {% else %}
+  <p style="color: white; font-size: 25px;">Got an old school desktop user here </p>
+  {% endif %}
 
   <!-- AVATAR/PROFILE-PHOTO section-->
   <div class="box">
