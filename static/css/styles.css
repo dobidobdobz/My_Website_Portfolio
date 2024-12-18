@@ -52,7 +52,7 @@
 #preloader .line:after {
   content: "";
   position: absolute;
-  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  background-color: color-mix(in srgb, var(--default-color), rgba(255, 255, 255, 0) 95%);
   left: 0;
   top: 0;
   width: 1px;
@@ -142,8 +142,8 @@
 	position: absolute;
 	left: -2px;
 	top: -2px;
-	background: linear-gradient(45deg, #f3633f, #ed1d24, #f3633f, #ed1d24, #f3633f, transparent,
-		transparent, transparent,transparent, transparent);
+	background: linear-gradient(45deg, #f3633f, #ed1d24, #f3633f, #ed1d24, #f3633f, rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0), rgba(255, 255, 255, 0),rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
 	/*background: linear-gradient(180deg, #f3633f, #f3633f, #f3633f,#f3633f, #f3633f, #000c24,
 		#000c24, #000c24,#000c24, #f3633f);  180 degree setting stil image looks kinda dope-*/
 	background-size: 200%;
@@ -283,7 +283,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 450;
   font-style: bold;
-  background: linear-gradient(45deg, transparent, #000000,#000000,#000000, transparent);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0), #000000,#000000,#000000, rgba(255, 255, 255, 0));
 }
 
 .resume_button:hover {
@@ -326,7 +326,7 @@ body {
 .card {
     width:  200px;
     height: 280px;
-    background: linear-gradient(90deg, transparent, #212529, #212529, transparent);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), #212529, #212529, rgba(255, 255, 255, 0));
     border-radius: 3px;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
@@ -385,7 +385,7 @@ input[type=text], select, textarea {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-style: normal;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
   border-top: 0px solid #010C23;
   border-right:  0px solid #010C23;
   border-left:  0px solid #010C23;
@@ -423,15 +423,15 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border-top: 0px solid transparent;
-  border-right:  0px solid transparent;
-  border-left:  0px solid transparent;
+  border-top: 0px solid rgba(255, 255, 255, 0);
+  border-right:  0px solid rgba(255, 255, 255, 0);
+  border-left:  0px solid rgba(255, 255, 255, 0);
   border-bottom: 1.8px solid #f3633f;
   -webkit-text-font-size: 10px;
   -webkit-text-font-family: "Roboto", sans-serif;
   -webkit-text-font-family: font-weight: 900;
   -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
