@@ -29,7 +29,7 @@ def home():
     is_mobile_device = False
     print(type(is_mobile_device))
 
-    if "Mobile" in user_device:
+    if "Android" or "iPhone" in user_device:
         print("found android in list")
         is_mobile_device = True
         print(is_mobile_device)
