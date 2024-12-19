@@ -441,8 +441,8 @@ body {
 --------------------------------------------------------------*/
 
 .space-between_buttons {
-  margin-left: 1.5px;
-  margin-right: 1.5px;
+  margin-left: 1.5px !important;
+  margin-right: 1.5px !important;
   padding-right: 17px !important;
   padding-left: 17px !important;
   color: #ffffff;
@@ -458,13 +458,13 @@ body {
 # PROJECTS CONTAINER
 --------------------------------------------------------------*/
 .container {
-    width: 100%;
-    height:  100%;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    display:  -webkit-box;
-    display:  -ms-flexbox;
-    display:  flex;
+    width: 100% !important;
+    height:  100% !important;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+    display:  -webkit-box !important;
+    display:  -ms-flexbox !important;
+    display:  flex !important;
     -webkit-box-align:  center;
         -ms-flex-align:  center;
             align-items:  center;
@@ -474,46 +474,46 @@ body {
 }
 
 .card {
-    width:  200px;
-    height: 280px;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(#212529), color-stop(#212529), to(rgba(0, 0, 0, 0)));
-    background: -o-linear-gradient(left, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0));
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0));
-    border-radius: 3px;
+    width:  200px !important;
+    height: 280px !important;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(#212529), color-stop(#212529), to(rgba(0, 0, 0, 0))) !important;
+    background: -o-linear-gradient(left, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0)) !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0)) !important;
+    border-radius: 3px !important;
     border-top: 1.5px solid #f3633f;
     border-bottom: 1.5px solid #f3633f;
 }
 
 h3 {
- font-family: "Roboto", sans-serif;
- font-weight: 700;
- font-style: normal;
- margin-bottom: 20px;
- font-size: 28.5px;
- font-style: bold;
+ font-family: "Roboto", sans-serif !important;
+ font-weight: 700 !important;
+ font-style: normal !important;
+ margin-bottom: 20px !important;
+ font-size: 28.5px !important;
+ font-style: bold !important;
 }
 
 .h4 {
     color: #f3633f;
     text-transform: uppercase;
-    padding-top: 14px;
-    font-size: 18px;
-    letter-spacing: 0.2em;
+    padding-top: 14px !important;
+    font-size: 18px !important;
+    letter-spacing: 0.2em !important;
 }
 
 .list_of_projects {
-    padding-top: 20px;
-    font-size: 13px;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    list-style-type: none; /* Remove bullets */
+    padding-top: 20px !important;
+    font-size: 13px !important;
+    font-family: "Roboto", sans-serif !important;
+    font-style: normal !important;
+    list-style-type: none !important; /* Remove bullets */
     padding: 0; /* Remove padding */
-    margin: 8px ; /* Remove margins */
+    margin: 8px !important; /* Remove margins */
 }
 
 .list_of_projects a {
-    color: yellow;
-    text-shadow: 0 0 1.5rem #ed1d24;
+    color: yellow ;
+    text-shadow: 0 0 1.5rem #ed1d24 !important;
     text-decoration: none;
 }
 
