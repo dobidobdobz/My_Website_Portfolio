@@ -19,9 +19,12 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
 
+    
+
     user_device = request.headers.get('User-agent').split()
     print(user_device)
     print(type(user_device))
+    print(f"theme is {darkdetect.theme()}")
     # user_device = user_device.lower().split()
     # print(user_device)
     # for x in user_device:
