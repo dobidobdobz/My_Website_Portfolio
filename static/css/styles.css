@@ -123,7 +123,7 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0), #212529);
+  background: rgba(0, 0, 0);
 }
 
 .box div img{
