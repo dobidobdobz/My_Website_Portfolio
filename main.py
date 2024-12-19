@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import smtplib
 import os
 import darkdetect
+import getostheme
 
 
 # Environment variables to be kept confidential
