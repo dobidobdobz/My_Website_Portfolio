@@ -44,7 +44,7 @@ def home():
                 print(f'chrome broswer: {is_mobile_chrome}')
                 return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone, is_mobile_chrome=is_mobile_chrome)
             else:
-                return return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+                return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
         else:    
             is_mobile_device = True
             print(f"is not a iphone most likely a andriod: {is_mobile_device}")
