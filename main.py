@@ -20,35 +20,34 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-    print(f"using(darkdetect): {darkdetect.theme()}")
-
-    print(f"using(getostheme): is the os theme dark-mode:{getostheme.isDarkMode()}")
-    print(f"using(getostheme): is the os theme light-mode:{getostheme.isLightMode()}")
-
-    user_device = request.headers.get('User-agent').split()
+    user_device = request.headers.get('User-agent')
     print(user_device)
     print(type(user_device))
-    print(f"theme is {darkdetect.theme()}")
-    # user_device = user_device.lower().split()
-    # print(user_device)
-    # for x in user_device:
-    #    print(x)
 
+    is_mobile_safari = False
+    is_mobile_chrome = False
     is_mobile_device = False
     is_iphone = False
-    print(type(is_mobile_device))
 
     if "Mobile" in user_device or "iPhone" in user_device:
         print("found mobile or iPhone in list")
         if "iPhone" in user_device:
+            
             is_iphone = True
             is_mobile_device = True
-            print(is_iphone)
-            print(is_mobile_device)
-            return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+            
+            print(f"device is mobile:{is_mobile_device}")
+            print(f"device is iphone:{is_iphone}")
+            
+            if "Chrome" in user_device: 
+                is_mobile_chrome = True
+                print(f'chrome broswer: {is_mobile_chrome}')
+                return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone, is_mobile_chrome=is_mobile_chrome)
+            else:
+                return return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
         else:    
             is_mobile_device = True
-            print(is_mobile_device)
+            print(f"is not a iphone most likely a andriod: {is_mobile_device}")
             return render_template("index.html", is_mobile_device=is_mobile_device)
     else:
         # condition to execute post request
