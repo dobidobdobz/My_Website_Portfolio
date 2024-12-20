@@ -50,12 +50,20 @@
   {% endif %}
 
   <!-- AVATAR/PROFILE-PHOTO section--> 
+  {% if is_mobile_device and is_iphone %}   
+  <div style="" class="box">  
+      <div style="border-radius: 25%;">
+          <img style="border-radius: 25%;" src="static/css/imgs/AVATAR.png">
+      </div>
+  </div>
+  {% else %}  
   <div style="" class="box">  
       <div>
           <img src="static/css/imgs/AVATAR.png">
       </div>
   </div>
-
+  {% endif %}
+      
   <div class="hero-text">
      <!-- NEON/LUMO NAME -->
       <h1 class="text me-4">
