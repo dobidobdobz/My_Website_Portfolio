@@ -23,8 +23,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Neon&display=swap" rel="stylesheet">
 
 </head>
-
-{% if is_mobile_device %}   
+{% if is_mobile_device and is_iphone %}   
+<body style="transform: scale(1.75);" class="hero-image">
+{% elif is_mobile_device %}   
 <body style="zoom: 250%;" class="hero-image">
 {% else %}
 <body style="zoom: 125%;" class="hero-image">
