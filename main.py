@@ -35,13 +35,21 @@ def home():
     #    print(x)
 
     is_mobile_device = False
+    is_iphone = False
     print(type(is_mobile_device))
 
     if "Mobile" in user_device or "iPhone" in user_device:
         print("found mobile or iPhone in list")
-        is_mobile_device = True
-        print(is_mobile_device)
-        return render_template("index.html", is_mobile_device=is_mobile_device)
+        if "iPhone" in user_device:
+            is_iphone = True
+            is_mobile_device = True
+            print(is_iphone)
+            print(is_mobile_device)
+            return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+        else:    
+            is_mobile_device = True
+            print(is_mobile_device)
+            return render_template("index.html", is_mobile_device=is_mobile_device)
     else:
         # condition to execute post request
         if request.method == "POST":
