@@ -39,12 +39,7 @@ def home():
             print(f"device is mobile:{is_mobile_device}")
             print(f"device is iphone:{is_iphone}")
             
-            if "Chrome" in user_device or "CriOS" in user_device: 
-                is_mobile_chrome = True
-                print(f'chrome broswer: {is_mobile_chrome}')
-                return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone, is_mobile_chrome=is_mobile_chrome)
-            else:
-                return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+            return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
         else:    
             is_mobile_device = True
             print(f"is not a iphone most likely a andriod: {is_mobile_device}")
