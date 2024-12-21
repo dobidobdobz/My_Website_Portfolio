@@ -24,7 +24,8 @@
 
 </head>
 {% if is_mobile_device and is_iphone %}   
-<body style="-webkit-transform: scale(2.5); margin-top: 925px;" class="hero-image">    
+<body style="-webkit-transform: scale(2.5); margin-top: 925px;" class="hero-image">
+<p style="color: white; font-size: 25px;">I'm happy to see you are using a Iphone</p>      
 {% elif is_mobile_device %}   
 <body style="zoom: 250%;" class="hero-image">
 {% else %}
@@ -42,7 +43,9 @@
 
   <!-- hero section-->
   <div>
-        
+
+  {% if is_mobile_device and is_iphone %}  
+  <p style="color: white; font-size: 25px;">I'm happy to see you are using a Iphone</p>    
   {% if is_mobile_device %}
   <p style="color: white; font-size: 25px;">I'm happy to see you are using a Mobile device</p>
   {% else %}
