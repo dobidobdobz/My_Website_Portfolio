@@ -20,19 +20,10 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-    print(f"using(darkdetect): {darkdetect.theme()}")
-
-    print(f"using(getostheme): is the os theme dark-mode:{getostheme.isDarkMode()}")
-    print(f"using(getostheme): is the os theme light-mode:{getostheme.isLightMode()}")
-
     user_device = request.headers.get('User-agent').split()
     print(user_device)
-    print(type(user_device))
-    print(f"theme is {darkdetect.theme()}")
-    # user_device = user_device.lower().split()
-    # print(user_device)
-    # for x in user_device:
-    #    print(x)
+    print(type(user_device))   
+
 
     is_mobile_device = False
     is_iphone = False
