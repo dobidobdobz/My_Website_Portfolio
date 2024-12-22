@@ -74,7 +74,7 @@ def home():
                     mail_sent_error = f"Error! your message has been not sent!"
                     return render_template("index.html", is_mobile_device=is_mobile_device, mail_sent_error=mail_sent_error)
             else: 
-                return render_template("index.html", is_mobile_device=is_mobile_device, is_mobile_device=is_mobile_device,)
+                return render_template("index.html", is_mobile_device=is_mobile_device)
             
     # if not mobile or iphone else: its desktop!        
     else:
