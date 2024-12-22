@@ -67,6 +67,7 @@ def home():
                 except:
                     # renders feedback if error occurs in html
                     mail_sent_error = f"Error! your message has been not sent!"
+                    # passes it into the frontend! client side HTML and renders home() / index html 
                     return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device, is_iphone=is_iphone)
             
             
@@ -84,6 +85,7 @@ def home():
                 name_on_form = request.form.get("name")
                 email_on_form = request.form.get("email")
                 message_on_form = request.form.get("message")
+                
                 # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
                 try:
                     # executes sending email with data
@@ -102,10 +104,13 @@ def home():
                     # renders feedback if successful in html
                     mail_sent_successfully = f"Thank you, {name_on_form}, your message has been sent!"
                     return render_template("index.html", mail_sent_successfully=mail_sent_successfully, is_mobile_device=is_mobile_device)
+                    
                 except:
                     # renders feedback if error occurs in html
                     mail_sent_error = f"Error! your message has been not sent!"
+                    # passes it into the frontend! client side HTML and renders home() / index html 
                     return render_template("index.html", is_mobile_device=is_mobile_device, mail_sent_error=mail_sent_error)
+                    
             else: 
                 return render_template("index.html", is_mobile_device=is_mobile_device)
             
