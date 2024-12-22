@@ -37,6 +37,39 @@ def home():
             is_iphone = True
             is_mobile_device = True
 
+            # if condition to execute post request  
+            if request.method == "POST":
+                
+                # data input from CONTACT FORM, id=email in HTML form & from id=name in HTML form etc.
+                name_on_form = request.form.get("name")
+                email_on_form = request.form.get("email")
+                message_on_form = request.form.get("message")
+                
+                # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
+                try:
+                    # executes sending email with data
+                    connection = smtplib.SMTP(host=HOST, port=587)
+                    connection.starttls()
+                    connection.login(user=MAIL, password=PASS)
+                    connection.sendmail(
+                        to_addrs=T0_MAIL,
+                        from_addr=MAIL,
+                        msg=f"From:CONTACT WEB-PORTFOLIO \nSubject: CONTACT ALERT! {name_on_form}! FROM WEBSITE PORTFOLIO! \n\n "
+                        f"Client name: {name_on_form}\n"
+                        f"Client email: {email_on_form}\n"
+                        f"Message from client: {message_on_form}"
+                    )
+                    connection.quit()
+                    # renders feedback if successful in html
+                    mail_sent_successfully = f"Thank you, {name_on_form}, your message has been sent!"
+                    return render_template("index.html", mail_sent_successfully=mail_sent_successfully, is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+               
+                except:
+                    # renders feedback if error occurs in html
+                    mail_sent_error = f"Error! your message has been not sent!"
+                    return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+            
+            
             # passes it into the frontend! client side HTML and renders home() / index html 
             return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
 
@@ -78,7 +111,7 @@ def home():
             
     # if not mobile or iphone else: its desktop!        
     else:
-        # condition to execute post request
+        # if condition to execute post request  
         if request.method == "POST":
             # data input from CONTACT FORM, id=email in HTML form & from id=name in HTML form etc.
             name_on_form = request.form.get("name")
@@ -106,9 +139,8 @@ def home():
                 # renders feedback if error occurs in html
                 mail_sent_error = f"Error! your message has been not sent!"
                 return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device)
+        # renders html file with is_mobile = False         
         else:
-            print(is_mobile_device)
-            print(type(is_mobile_device))
             return render_template("index.html", is_mobile_device=is_mobile_device)
 
 
