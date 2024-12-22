@@ -87,7 +87,7 @@ def home():
             # error handling to display feedback to client if MSG / email sent was successful or not from CONTACT FORM!
             try:
                 # executes sending email with data
-                connection = smtplib.SMTP(host=HOST, port=int(PORT))
+                connection = smtplib.SMTP(host=HOST)
                 connection.starttls()
                 connection.login(user=MAIL, password=PASS)
                 connection.sendmail(
