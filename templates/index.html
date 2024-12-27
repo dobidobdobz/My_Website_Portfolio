@@ -147,6 +147,8 @@
           <div>
               <div >
                   <div class="container">
+                      <!-- Link to reset the Tic Tac Toe game -->
+                      <a href="#" id="reset-tic-tac-toe">Reset Tic Tac Toe</a>
                       <h4 class="h4_white">Tic Tac Toe</h4>
                       <div id="game-board">
                           {% for i in range(9) %}
@@ -312,19 +314,36 @@
         });
     });
 
-     // jQuery to handle the click event and send an AJAX request
-        $(document).ready(function() {
+$(document).ready(function() {
+            // Start Tic Tac Toe
             $('#tic-tac-toe-toggle').click(function(e) {
-                e.preventDefault();  // Prevent the default link behavior
+                e.preventDefault();  // Prevent default link behavior
 
-                // Send AJAX request to Flask server to update the constant
                 $.ajax({
                     url: '/toggle_tic_tac_toe',  // Flask route to handle the change
-                    method: 'POST',               // HTTP method
+                    method: 'POST',
                     success: function(response) {
-                        console.log('Constant updated:', response);
+                        console.log('Tic Tac Toe started:', response);
                         alert('Tic Tac Toe game started!');
-                        location.reload();  // Refresh the page after successful request
+                        location.reload();  // Refresh the page
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            // Reset Tic Tac Toe
+            $('#reset-tic-tac-toe').click(function(e) {
+                e.preventDefault();  // Prevent default link behavior
+
+                $.ajax({
+                    url: '/reset_tic_tac_toe',  // Flask route to reset the constant
+                    method: 'POST',
+                    success: function(response) {
+                        console.log('Tic Tac Toe reset:', response);
+                        alert('Tic Tac Toe game has been reset!');
+                        location.reload();  // Refresh the page
                     },
                     error: function(xhr, status, error) {
                         console.error('Error:', error);
