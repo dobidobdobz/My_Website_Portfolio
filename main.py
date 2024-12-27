@@ -179,7 +179,6 @@ def home():
                 return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device)
         # renders html file with is_mobile = False         
         else:
-            print(scheduler.get_jobs()) 
             return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
 
 
