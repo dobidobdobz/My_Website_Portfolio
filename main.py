@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, , jsonify
 import smtplib
 import os
 
@@ -11,6 +11,42 @@ HOST = os.environ.get("HOST")
 
 # starting flask server
 app = Flask(__name__)
+
+class TicTacToe:
+
+    def __init__(self):
+        self.board = [' ']*9
+        self.current_player = "X"
+        self.winning_combinations = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)]
+
+    def make_move(self, position):
+        if self.board[position] == ' ':
+            self.board[position] = self.current_player
+            self.current_player = "O" if self.current_player == "X" else "X"
+            return True
+        return False
+
+    def check_winner(self):
+        for combo in self.winning_combinations:
+            if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != ' ':
+                return self.board[combo[0]]
+        if ' ' not in self.board:
+            return "Tie"
+        return None
+
+    def get_winning_combination(self):
+        for combo in self.winning_combinations:
+            if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != ' ':
+                return combo
+        return None
+
+    def reset_board(self):
+        self.board = [' ']*9
+
+
+game = TicTacToe()
+
+is_tic_tac_toe = False
 
 
 # server url & renders specific html template according conditional GET OR POST request.
@@ -143,7 +179,37 @@ def home():
                 return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device)
         # renders html file with is_mobile = False         
         else:
-            return render_template("index.html", is_mobile_device=is_mobile_device)
+            return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
+
+
+@app.route("/", methods=["GET", "POST"])
+def home_tic_tac_toe():
+    return render_template("index.html", board=game.board)
+
+
+@app.route("/make_move", methods=["POST"])
+def make_move():
+    data = request.get_json()
+    position = data["position"]
+    if game.make_move(position):
+        winner = game.check_winner()
+        winning_combination = game.get_winning_combination()
+        return jsonify({ "status": "success", "winner": winner, "board": game.board, "winning_combination": winning_combination})
+    else:
+        return jsonify({'status': "error", "message": "invalid move"})
+
+
+@app.route("/restart", methods=["POST"])
+def clear():
+    game.reset_board()
+    return jsonify({ "status": "success" })
+
+
+@app.route('/toggle_tic_tac_toe', methods=['POST'])
+def toggle_tic_tac_toe():
+    global is_tic_tac_toe  # Access the global variable
+    is_tic_tac_toe = True   # Change the constant to True
+    return jsonify({'status': 'success', 'is_tic_tac_toe': is_tic_tac_toe})
 
 
 # runs flask server in debug mode applying changes as they are made.
