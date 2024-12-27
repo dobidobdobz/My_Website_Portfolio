@@ -489,7 +489,7 @@ Tic Tac Toe
 }
 
 #game-board {
-    background: black;
+    background: grey;
     width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -520,7 +520,7 @@ Tic Tac Toe
    height: 60px;
    font-size: 35px;
    color: white;
-   background-color: #272727;
+   background-color: #000000;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
