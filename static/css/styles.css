@@ -538,7 +538,7 @@ Tic Tac Toe
 	font-size: 15px;
 	color: yellow;
 	font-weight: 500;
-	text-shadow: 0 0 1.5rem #ed1d24;
+	text-shadow: 0 0 2.5rem #ed1d24;
 	text-decoration: none;
 	
 }
@@ -562,7 +562,7 @@ Tic Tac Toe
     background-color: #272727;
     border: none;
     border-radius: 2.5%;
-    color: white;
+    color: yellow;
     text-shadow: 0 0 2.5rem #ed1d24;
     cursor: pointer;
 }
