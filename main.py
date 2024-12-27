@@ -104,7 +104,7 @@ def home():
             
             
             # passes it into the frontend! client side HTML and renders home() / index html 
-            return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone)
+            return render_template("index.html", is_mobile_device=is_mobile_device, is_iphone=is_iphone, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
 
         # If not iphone and it is_mobile_device = True, passed into frontend HTML!
         else:    
@@ -144,7 +144,7 @@ def home():
                     return render_template("index.html", is_mobile_device=is_mobile_device, mail_sent_error=mail_sent_error)
                     
             else: 
-                return render_template("index.html", is_mobile_device=is_mobile_device)
+                return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
             
     # if not mobile or iphone else: its desktop!        
     else:
