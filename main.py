@@ -7,7 +7,6 @@ MAIL = os.environ.get("MAIL")
 PASS = os.environ.get("PASS")
 T0_MAIL = os.environ.get("T0_MAIL")
 HOST = os.environ.get("HOST")
-# PORT = os.environ.get("PORT")
 
 # starting flask server
 app = Flask(__name__)
