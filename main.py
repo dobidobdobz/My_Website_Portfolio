@@ -210,7 +210,12 @@ def clear():
 def toggle_tic_tac_toe():
     global is_tic_tac_toe  # Access the global variable
     is_tic_tac_toe = True   # Change the constant to True
+    return jsonify({'status': 'success', 'is_tic_tac_toe': is_tic_tac_toe})
 
+@app.route('/reset_tic_tac_toe', methods=['POST'])
+def reset_tic_tac_toe():
+    global is_tic_tac_toe
+    is_tic_tac_toe = False  # Reset the constant to False
     return jsonify({'status': 'success', 'is_tic_tac_toe': is_tic_tac_toe})
 
 
