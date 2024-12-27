@@ -519,8 +519,8 @@ Tic Tac Toe
    width: 60px;
    height: 60px;
    font-size: 35px;
-   color: #272727;
-   background-color: #f3633f;
+   color: white;
+   background-color: #272727;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
