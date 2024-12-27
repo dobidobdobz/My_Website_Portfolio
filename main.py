@@ -186,6 +186,12 @@ def home():
             return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
 
 
+def reset_tic_tac_toe():
+    global is_tic_tac_toe
+    is_tic_tac_toe = False  # Reset the constant to False
+    print(f"Game state reset at {datetime.now()}")
+
+
 @app.route("/", methods=["GET", "POST"])
 def home_tic_tac_toe():
     return render_template("index.html", board=game.board)
