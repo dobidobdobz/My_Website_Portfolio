@@ -533,6 +533,16 @@ Tic Tac Toe
    cursor: pointer;
 }
 
+#reset-tic-tac-toe {
+    	paddingt-top: 12px;
+	font-size: 15px;
+	color: yellow;
+	font-weight: 500;
+	text-shadow: 0 0 1.5rem #ed1d24;
+	text-decoration: none;
+	
+}
+
 #status-message {
     margin-bottom: 10px;
     margin-top: 10px;
