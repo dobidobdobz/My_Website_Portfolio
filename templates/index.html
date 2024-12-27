@@ -20,7 +20,7 @@
     <!-- form font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Neon&display=swap" rel="stylesheet">
 
     <!-- Internal css to overiide external css depending device iphone detected! -->
     <style>
@@ -51,31 +51,16 @@
             top: 0px;
             border-radius: 50%;
         }
-
-        /* Adjustments for mobile */
-        @media (max-width: 767px) {
-            body {
-                zoom: 250%;
-            }
-            .avatarDIV {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        /* Adjustments for desktop */
-        @media (min-width: 768px) {
-            body {
-                zoom: 125%;
-            }
-        }
     </style>
+    
 </head>
-
-{% if is_mobile_device %}
-<body class="hero-image">
+<!-- displaysaccoridn to device desktop/mobile(android or iphone)-->    
+{% if is_mobile_device and is_iphone %}   
+<body style="-webkit-transform: scale(3); margin-top:1060px;" class="hero-image">
+{% elif is_mobile_device %}   
+<body style="zoom: 250%;" class="hero-image">
 {% else %}
-<body class="hero-image">
+<body style="zoom: 125%;" class="hero-image">
 {% endif %}
 
   <!-- Preloader/ANIMATION intro-->
@@ -91,11 +76,19 @@
   <div>
         
   <!-- AVATAR/PROFILE-PHOTO according to what device is viewing the section-->
+  {% if is_mobile_device and is_iphone %}
   <div class="boxx">
       <div class="avatarDIV">
           <img id="avatarIMG" src="static/css/imgs/AVATAR.png">
       </div>
   </div>
+  {% else %}
+  <div class="box">
+      <div>
+          <img src="static/css/imgs/AVATAR.png">
+      </div>
+  </div>
+  {% endif %}
 
   <div class="hero-text">
      <!-- NEON/LUMO NAME -->
@@ -130,38 +123,218 @@
                 <!--instagram button -->
                 <a type="button" class="btn btn-dark btn-md space-between_buttons" href="https://www.instagram.com/dobri_todorov_popov/">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92s-.546.453-.92.599c-.282.11-.705.24-1.485.275-.843.039-1.095.046-3.231.046s-2.389-.007-3.232-.046c-.78-.035-1.204-.166-1.486-.275-.373-.145-.64-.319-.92-.599s-.453-.546-.599-.92c-.11-.282-.24-.705-.275-1.485-.039-.843-.047-1.096-.047-3.231s.008-2.389.047-3.232c.035-.78.166-1.204.275-1.485.145-.373.319-.64.599-.92s.546-.453.92-.599c.282-.11.705-.24 1.485-.275.843-.039 1.096-.046 3.232-.046zm-.718 3.377c-2.15 0-3.249.937-3.249 3.011s1.105 3.011 3.249 3.011c2.145 0 3.248-.937 3.248-3.011s-1.103-3.011-3.248-3.011z"/>
+                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
                     </svg>
                 </a>
-              </div>
 
-  </div>
+                <!--Git button -->
+                <a type="button" class="btn btn-dark btn-md space-between_buttons" href="https://github.com/dobidobdobz">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg>
+                </a>
 
-  <!-- Tic-Tac-Toe Game for Interactivity -->
-  <div id="game-container">
-      <div id="tic-tac-toe">
-          <div id="game-board" class="container">
-              <div class="row">
-                  <div class="col">
-                      <div class="cell" id="cell1"></div>
-                      <div class="cell" id="cell2"></div>
-                      <div class="cell" id="cell3"></div>
-                  </div>
-                  <div class="col">
-                      <div class="cell" id="cell4"></div>
-                      <div class="cell" id="cell5"></div>
-                      <div class="cell" id="cell6"></div>
-                  </div>
-                  <div class="col">
-                      <div class="cell" id="cell7"></div>
-                      <div class="cell" id="cell8"></div>
-                      <div class="cell" id="cell9"></div>
+                <!--linkedIn button -->
+                <a type="button" class="btn btn-dark btn-md space-between_buttons" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 17 17">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                    </svg>
+                </a>
+          </div>
+
+          {% if is_tic_tac_toe %}
+          <!--Tic Tac Toe -->
+          <div>
+              <div >
+                  <div class="container">
+                      <h4 class="h4_white">Tic Tac Toe</h4>
+                      <div id="game-board">
+                          {% for i in range(9) %}
+                          <div class="cell" id="{{ i }}"></div>
+                          {% endfor %}
+                      </div>
+                      <div id="status-message"></div>
+                      <button id="restart-btn">Restart Game</button>
                   </div>
               </div>
           </div>
-      </div>
+          {% else %}
+          <br>
+          <br>
+          {% endif %}
+
+          <!--PROJECTS CONTAINER -->
+          <div class="container">
+              <div class="card">
+
+                  <h4 class="h4">Projects</h4>
+
+                  <div class="list_of_projects">
+                      <li><a href="#" >My_Website_Portfolio</a></li>
+                      <li><a href="#" >Guitar_Tuner</a></li>
+                      <li><a href="https://github.com/dobidobdobz/Morse_Code_Translator/blob/main/main.py" >Morse_Code_Translator</a></li>
+                      <li><a href="https://github.com/dobidobdobz/snaky_snaky_OOP/blob/main/main.py" >Snaky_Game(OOP)</a></li>
+                      <li><a href="#" >Pomodoro_App</a></li>
+                      <li><a href="https://github.com/dobidobdobz/Password_Manager/blob/main/password_manager/main.py" >Password_Manager</a></li>
+                      <li><a href="https://github.com/dobidobdobz/Pong_Game_OOP/blob/main/main.py" >Pong_Game(OOP)</a></li>
+                      <li><a href="#" id="tic-tac-toe-toggle" >Tic_Toe_Game</a></li>
+                      <li><a href="#" >Lorem ipsum</a></li>
+                      <li><a href="#" >Ipsum_to_lorm</a></li>
+                      <li><a href="#" >Sum_The_Ip_Lorem</a></li>
+                  </div>
+                  
+              </div>
+          </div>
+
   </div>
 
-  </body>
+  <!--CONTACT SECTION-->
+  <div class="container2">
+      <h4 class="h4">CONTACT</h4>
+
+      <!--feedback if sent email/msg was successful or if error occurs-->
+      <h6 class="mail_sent_success">{{ mail_sent_successfully }}</h6>
+      <h6 class="mail_sent_error">{{ mail_sent_error }}</h6>
+
+      <!--CONTACT FORM-->
+      <form action="{{ url_for('home') }}" method='post' >
+
+        <!--CONTACT FORM INPUT FIELD - NAME -->
+        <div>
+          <div class="col-75">
+            <!--pattern checks for valid input cannot be empty-->
+            <input type="text" id="name" name="name" placeholder="Enter Your Name" required="required">
+          </div>
+        </div>
+
+        <!--CONTACT FORM INPUT-FIELD - EMAIL -->
+        <div class="row">
+          <div class="col-75">
+            <!--pattern checks for valid email input-->
+            <input type="text" id="email" name="email" placeholder="Enter Your Email" required="required" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Invalid email please ensure you have entered lowercase letters & '@', '.' ">
+          </div>
+        </div>
+
+        <!--CONTACT FORM TEXTAREA-FIELD - MESSAGE -->
+        <div>
+          <div class="col-75">
+            <!--pattern checks for valid input cannot be empty-->
+            <textarea id="message" name="message" placeholder="Your Message" required="required"></textarea>
+          </div>
+        </div>
+
+        <br>
+
+        <!--CONTACT FORM SUBMIT / SEND MESSAGE BUTTON-->
+        <div>
+          <button type="submit">Send Message!</button>
+        </div>
+
+      </form>
+  </div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+        $('.cell').click(function() {
+            var position = parseInt ($(this).attr('id'))
+            makeMove(position);
+        });
+        updateBoard({{ board | tojson }})
+
+
+        $.ajax({
+            url: '/restart',
+            method: 'POST',
+            contentType: 'application/json',
+            success: function(data) {
+                $('.cell').text('');
+            }
+        });
+    });
+
+    function makeMove(position) {
+        $.ajax({
+            url: '/make_move',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({'position': position}),
+            success: function(data) {
+                if (data.status === 'success') {
+                    updateBoard(data.board);
+                    if (data.winner) {
+                        if (data.winner == 'Tie') {
+                            $('#status-message').text('Its a ' + data.winner);
+                        } else {
+                            $('#status-message').text('winner ' + data.winner);
+                        }
+                        highlightWinner(data.winning_combination)
+                    }
+                } else {
+                    alert(data.message);
+                }
+            }
+        });
+    }
+
+    function highlightWinner(winningCombination) {
+        $('.cell').removeClass('winner');
+        winningCombination.forEach(function(position) {
+            $("#" + position).addClass('winner');
+        });
+    }
+
+    function updateBoard(board) {
+        console.log('in update');
+        $('.cell').each(function(index) {
+            console.log(board[index]);
+            $(this).text(board[index]);
+        });
+    }
+
+    $("#restart-btn").on('click', function() {
+        $.ajax({
+            url: '/restart',
+            method: 'POST',
+            contentType: 'application/json',
+            success: function(data) {
+                $('.cell').text('');
+                $('.cell').removeClass('winner');
+            }
+        });
+    });
+
+     // jQuery to handle the click event and send an AJAX request
+        $(document).ready(function() {
+            $('#tic-tac-toe-toggle').click(function(e) {
+                e.preventDefault();  // Prevent the default link behavior
+
+                // Send AJAX request to Flask server to update the constant
+                $.ajax({
+                    url: '/toggle_tic_tac_toe',  // Flask route to handle the change
+                    method: 'POST',               // HTTP method
+                    success: function(response) {
+                        console.log('Constant updated:', response);
+                        alert('Tic Tac Toe game started!');
+                        location.reload();  // Refresh the page after successful request
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+
+  </script>    
+
+</body>
 </html>
 
