@@ -142,6 +142,27 @@
                 </a>
           </div>
 
+          {% if is_tic_tac_toe %}
+          <!--Tic Tac Toe -->
+          <div>
+              <div >
+                  <div class="container">
+                      <h4 class="h4_white">Tic Tac Toe</h4>
+                      <div id="game-board">
+                          {% for i in range(9) %}
+                          <div class="cell" id="{{ i }}"></div>
+                          {% endfor %}
+                      </div>
+                      <div id="status-message"></div>
+                      <button id="restart-btn">Restart Game</button>
+                  </div>
+              </div>
+          </div>
+          {% else %}
+          <br>
+          <br>
+          {% endif %}
+
           <!--PROJECTS CONTAINER -->
           <div class="container">
               <div class="card">
@@ -156,11 +177,12 @@
                       <li><a href="#" >Pomodoro_App</a></li>
                       <li><a href="https://github.com/dobidobdobz/Password_Manager/blob/main/password_manager/main.py" >Password_Manager</a></li>
                       <li><a href="https://github.com/dobidobdobz/Pong_Game_OOP/blob/main/main.py" >Pong_Game(OOP)</a></li>
-                      <li><a href="#" >Sum_The_Ip_Lorem</a></li>
+                      <li><a href="#" id="tic-tac-toe-toggle" >Tic_Toe_Game</a></li>
                       <li><a href="#" >Lorem ipsum</a></li>
                       <li><a href="#" >Ipsum_to_lorm</a></li>
                       <li><a href="#" >Sum_The_Ip_Lorem</a></li>
                   </div>
+                  
               </div>
           </div>
 
@@ -218,6 +240,100 @@
 
   <!-- Main JS File -->
   <script src="static/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+        $('.cell').click(function() {
+            var position = parseInt ($(this).attr('id'))
+            makeMove(position);
+        });
+        updateBoard({{ board | tojson }})
+
+
+        $.ajax({
+            url: '/restart',
+            method: 'POST',
+            contentType: 'application/json',
+            success: function(data) {
+                $('.cell').text('');
+            }
+        });
+    });
+
+    function makeMove(position) {
+        $.ajax({
+            url: '/make_move',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({'position': position}),
+            success: function(data) {
+                if (data.status === 'success') {
+                    updateBoard(data.board);
+                    if (data.winner) {
+                        if (data.winner == 'Tie') {
+                            $('#status-message').text('Its a ' + data.winner);
+                        } else {
+                            $('#status-message').text('winner ' + data.winner);
+                        }
+                        highlightWinner(data.winning_combination)
+                    }
+                } else {
+                    alert(data.message);
+                }
+            }
+        });
+    }
+
+    function highlightWinner(winningCombination) {
+        $('.cell').removeClass('winner');
+        winningCombination.forEach(function(position) {
+            $("#" + position).addClass('winner');
+        });
+    }
+
+    function updateBoard(board) {
+        console.log('in update');
+        $('.cell').each(function(index) {
+            console.log(board[index]);
+            $(this).text(board[index]);
+        });
+    }
+
+    $("#restart-btn").on('click', function() {
+        $.ajax({
+            url: '/restart',
+            method: 'POST',
+            contentType: 'application/json',
+            success: function(data) {
+                $('.cell').text('');
+                $('.cell').removeClass('winner');
+            }
+        });
+    });
+
+     // jQuery to handle the click event and send an AJAX request
+        $(document).ready(function() {
+            $('#tic-tac-toe-toggle').click(function(e) {
+                e.preventDefault();  // Prevent the default link behavior
+
+                // Send AJAX request to Flask server to update the constant
+                $.ajax({
+                    url: '/toggle_tic_tac_toe',  // Flask route to handle the change
+                    method: 'POST',               // HTTP method
+                    success: function(response) {
+                        console.log('Constant updated:', response);
+                        alert('Tic Tac Toe game started!');
+                        location.reload();  // Refresh the page after successful request
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+
+  </script>    
 
 </body>
 </html>
