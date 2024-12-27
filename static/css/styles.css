@@ -519,7 +519,7 @@ Tic Tac Toe
    width: 60px;
    height: 60px;
    font-size: 35px;
-   color: white;
+   color: #272727;
    background-color: #f3633f;
    display: -webkit-box;
    display: -ms-flexbox;
@@ -563,13 +563,13 @@ Tic Tac Toe
     border: none;
     border-radius: 2.5%;
     color: white;
-    text-shadow: 0 0 1.5rem #ed1d24;
+    text-shadow: 0 0 2.5rem #ed1d24;
     cursor: pointer;
 }
 
 #restart-btn:hover {
     background-color: #f3633f;
-    color: black;
+    color: black; 
     -webkit-box-shadow: #ed1d24 0 0 35px 4px;
           box-shadow: #ed1d24 0 0 35px 4px;
 }
