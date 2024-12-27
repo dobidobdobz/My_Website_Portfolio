@@ -1,5 +1,3 @@
-from apscheduler.schedulers.background import BackgroundScheduler
-from datetime import datetime, timedelta
 from flask import Flask, render_template, request, jsonify
 import smtplib
 import os
@@ -50,10 +48,6 @@ game = TicTacToe()
 # Initialize the constant
 is_tic_tac_toe = False
 
-# Creates an instance of the scheduler
-scheduler = BackgroundScheduler()
-
-print(scheduler.get_jobs()) 
 
 # server url & renders specific html template according conditional GET OR POST request.
 @app.route("/", methods=["GET", "POST"])
@@ -189,12 +183,6 @@ def home():
             return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
 
 
-def reset_tic_tac_toe():
-    global is_tic_tac_toe
-    is_tic_tac_toe = False  # Reset the constant to False
-    print(f"Game state reset at {datetime.now()}")
-
-
 @app.route("/", methods=["GET", "POST"])
 def home_tic_tac_toe():
     return render_template("index.html", board=game.board)
@@ -221,18 +209,11 @@ def clear():
 @app.route('/toggle_tic_tac_toe', methods=['POST'])
 def toggle_tic_tac_toe():
     global is_tic_tac_toe  # Access the global variable
-    
     is_tic_tac_toe = True   # Change the constant to True
 
-    # Schedule the reset task to run after 5 minutes (300 seconds)
-    scheduler.add_job(reset_tic_tac_toe, 'date', run_date=datetime.now() + timedelta(seconds=90))
-
-    print(f"Job scheduled to reset at: {datetime.now() + timedelta(seconds=90)}")
-    
     return jsonify({'status': 'success', 'is_tic_tac_toe': is_tic_tac_toe})
 
 
 # runs flask server in debug mode applying changes as they are made.
 if __name__ == '__main__':
-    scheduler.start()  # Start the scheduler
     app.run(debug=True)
