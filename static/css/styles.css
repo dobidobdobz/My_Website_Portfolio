@@ -454,13 +454,129 @@ body {
   border: 0.5px solid #f3633f;
 }
 
+/*--------------------------------------------------------------
+Tic Tac Toe
+--------------------------------------------------------------*/
+
+.container{
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 210px;
+}
+.h3 {
+    color: white;
+    font-size: 25px;
+}
+
+.h4_white {
+    color: #f3633f;
+    text-transform: uppercase;
+    padding-top: 14px;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+}
+
+#game-board {
+    background: black;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1.8px solid #f3633f;
+    border-bottom: 1.8px solid #f3633f;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-grid-columns: minmax(0, 1fr) 5px minmax(0, 1fr) 5px minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 5px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.cell {
+   width: 60px;
+   height: 60px;
+   font-size: 35px;
+   color: white;
+   background-color: #272727;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   cursor: pointer;
+}
+
+#status-message {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #f3633f;
+}
+
+#restart-btn {
+    padding-bottom: 10px;
+    width: 180px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    list-style-type: none;
+    border-radius: 4px;
+    background-color: #272727;
+    border: none;
+    border-radius: 2.5%;
+    color: white;
+    text-shadow: 0 0 1.5rem #ed1d24;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    background-color: #f3633f;
+    color: black;
+    -webkit-box-shadow: #ed1d24 0 0 35px 4px;
+          box-shadow: #ed1d24 0 0 35px 4px;
+}
+.cell:hover {
+    background-color: grey;
+}
+.winner, .winner:hover {
+    background-color: #f3633f;
+}
+
  /*--------------------------------------------------------------
 # PROJECTS CONTAINER
 --------------------------------------------------------------*/
 .container {
     width: 100%;
     height:  100%;
-    padding-top: 30px;
+    padding-top: 0px;
     padding-bottom: 20px;
     display:  -webkit-box;
     display:  -ms-flexbox;
@@ -480,8 +596,8 @@ body {
     background: -o-linear-gradient(left, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0));
     background: linear-gradient(90deg, rgba(0, 0, 0, 0), #212529, #212529, rgba(0, 0, 0, 0));
     border-radius: 3px;
-    border-top: 1.5px solid #f3633f;
-    border-bottom: 1.5px solid #f3633f;
+    border-top: 1.8px solid #f3633f;
+    border-bottom: 1.8px solid #f3633f;
 }
 
 h3 {
