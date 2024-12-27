@@ -53,6 +53,8 @@ is_tic_tac_toe = False
 # Creates an instance of the scheduler
 scheduler = BackgroundScheduler()
 
+print(scheduler.get_jobs()) 
+
 # server url & renders specific html template according conditional GET OR POST request.
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -183,6 +185,7 @@ def home():
                 return render_template("index.html", mail_sent_error=mail_sent_error, is_mobile_device=is_mobile_device)
         # renders html file with is_mobile = False         
         else:
+            print(scheduler.get_jobs()) 
             return render_template("index.html", is_mobile_device=is_mobile_device, board=game.board, is_tic_tac_toe=is_tic_tac_toe)
 
 
@@ -223,6 +226,8 @@ def toggle_tic_tac_toe():
 
     # Schedule the reset task to run after 5 minutes (300 seconds)
     scheduler.add_job(reset_tic_tac_toe, 'date', run_date=datetime.now() + timedelta(seconds=90))
+
+    print(f"Job scheduled to reset at: {datetime.now() + timedelta(seconds=90)}")
     
     return jsonify({'status': 'success', 'is_tic_tac_toe': is_tic_tac_toe})
 
